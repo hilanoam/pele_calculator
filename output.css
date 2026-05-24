@@ -1467,21 +1467,13 @@ details[open] .kosher-arrow {
   direction: ltr;
 }
 
-.final-formula {
-  margin-top: 12px;
-  font-size: 20px;
-  font-weight: 600;
-  color: #312e81;
-  direction: ltr;
-}
-
 #finalTaxCharge,
 #finalPhoneCharge {
-  color: #4c1d95;
+  color: #0e186e;
 }
 
 #finalValue {
-  color: #2e1065;
+  color: #271065;
 }
 .selection-card {
   background: rgba(255,255,255,0.88);
@@ -1654,14 +1646,14 @@ details[open] .kosher-arrow {
   background:
     linear-gradient(135deg,
       rgba(255, 255, 255, 0.96),
-      rgba(210, 193, 241, 0.493),
+      rgba(224, 213, 245, 0.493),
       rgba(255, 255, 255, 0.92));
 
   border: 1px solid rgba(255,255,255,0.25);
 
   box-shadow:
-    0 25px 80px rgba(99,102,241,0.40),
-    0 0 40px rgba(168,85,247,0.35);
+    0 25px 80px rgba(181, 182, 250, 0.4),
+    0 0 40px rgba(159, 177, 255, 0.678);
 
   backdrop-filter: blur(20px);
 
@@ -1677,7 +1669,7 @@ details[open] .kosher-arrow {
 
   background:
     radial-gradient(circle at top right,
-      rgba(111, 0, 255, 0.35),
+      rgba(34, 65, 238, 0.103),
       transparent 35%);
 
   animation: glowMove 5s linear infinite;
@@ -1712,7 +1704,7 @@ details[open] .kosher-arrow {
 }
 
 .final-formula {
-  color: #3d146b;
+  color: #1e0d80;
 
   font-size: 20px;
 
@@ -1742,6 +1734,9 @@ details[open] .kosher-arrow {
     0 8px 24px rgba(15,23,42,0.05);
 
   backdrop-filter: blur(18px);
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
 }
 
 #finalValue {
@@ -1750,7 +1745,7 @@ details[open] .kosher-arrow {
   letter-spacing: -1px; 
   line-height: 1;
 
-  color: #4f1b92;
+  color: #05117c;
 
   text-shadow:
     0 0 8px rgba(255, 255, 255, 0.08);
