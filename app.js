@@ -115,6 +115,12 @@ const finalValue = document.getElementById("finalValue");
 const btnCalc = document.getElementById("btnCalc");
 const footerBanner = document.getElementById("footerBanner");
 
+const phoneCostFormula = document.getElementById("phoneCostFormula");
+const employerShareFormula = document.getElementById("employerShareFormula");
+const halfCostFormula = document.getElementById("halfCostFormula");
+const employeeShareFormula = document.getElementById("employeeShareFormula");
+const finalTaxCharge = document.getElementById("finalTaxCharge");
+const finalPhoneCharge = document.getElementById("finalPhoneCharge");
 // ====== State ======
 let hasStandard = null; // null עד שלא בוחרים
 let submitted = false;
@@ -129,6 +135,10 @@ function renderPhoneExplanation(phoneCost, employerShare, phoneBillCharge, halfC
   if (halfCostEl) halfCostEl.textContent = money(halfCost);
   if (employeeShareEl) employeeShareEl.textContent = money(phoneBillCharge);
   if (taxableBenefitEl) taxableBenefitEl.textContent = money(taxableBenefit);
+  if (phoneCostFormula) phoneCostFormula.textContent = money(phoneCost);
+  if (employerShareFormula) employerShareFormula.textContent = money(employerShare);
+  if (halfCostFormula) halfCostFormula.textContent = money(halfCost);
+  if (employeeShareFormula) employeeShareFormula.textContent = money(phoneBillCharge);
 }
 
 function getBenefitValue() {
@@ -221,9 +231,15 @@ function recalc() {
   const niB = B * FIXED_NI;
   const healthB = B * FIXED_HEALTH;
   const cost1 = taxB + niB + healthB;
-  const final = cost1;
-  
+  const phoneBillCharge = Math.max(
+    PHONE_VALUES[phoneType?.value] - RANK_ALLOWANCE[rankType?.value],
+    0
+  );
 
+  const final = cost1 + phoneBillCharge;
+  
+  if (finalTaxCharge) finalTaxCharge.textContent = money(cost1);
+  if (finalPhoneCharge) finalPhoneCharge.textContent = money(phoneBillCharge);
   // ====== Render breakdowns ======
   if (taxOnBenefit) taxOnBenefit.textContent = money(taxB);
   if (nOnBenefit) nOnBenefit.textContent = money(niB);
@@ -235,16 +251,25 @@ function recalc() {
 
 
 // ====== Listeners ======
-function maybeRecalc() {
-  if (submitted) recalc();
+function updatePhoneOnly() {
+  if (rankType?.value && phoneType?.value) {
+    getBenefitValue();
+  }
 }
 
+function maybeRecalc() {
+  updatePhoneOnly();
+
+  if (rankType?.value && phoneType?.value && taxPct?.value) {
+    submitted = true;
+    recalc();
+  }
+}
 
 rankType?.addEventListener("change", maybeRecalc);
 phoneType?.addEventListener("change", maybeRecalc);
 taxPct?.addEventListener("change", maybeRecalc);
 
-taxPct?.addEventListener("change", maybeRecalc);
 
 // allowance: אם מתחילים להקליד -> מפסיקים אוטומטי
 allowance?.addEventListener("input", () => {
