@@ -1596,3 +1596,24 @@ details[open] .kosher-arrow {
     0 0 0 4px rgba(99,102,241,.12),
     0 10px 25px rgba(99,102,241,.08);
 }
+
+@media (max-width: 640px) {
+  .calc-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .calc-row b {
+    white-space: normal;
+    width: 100%;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+  }
+
+  .muted-total b,
+  .final-soft b {
+    font-size: 16px;
+  }
+}
