@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>מחשבון ניכוי רכב</title>
+  <title>מחשבון זקיפת הטבת פלאפון</title>
   <link rel="stylesheet" href="./output.css" />
   <meta name="color-scheme" content="light">
 </head>
@@ -20,7 +20,7 @@
               <!-- Header -->
               <header class="w-full text-center space-y-2">
                 <div class="text-slate-900 text-2xl sm:text-3xl font-semibold tracking-tight">
-                  סימולטור אומדן חיוב שווי שימוש ברכב
+                 מחשבון זקיפת הטבת פלאפון 
                 </div>
               </header>
 
@@ -145,30 +145,6 @@
               </section>
 
 
-              <!-- Toggle ONLY -->
-              <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div
-                  class="mx-auto w-full max-w-md rounded-3xl bg-white/65 border border-white/45 backdrop-blur-xl p-5 shadow-[0_22px_50px_rgba(31,41,55,.14)]"
-                  style="grid-column: 1 / -1;">
-                  <div class="text-slate-900 font-semibold text-base">
-                    בחר סוג שימוש ברכב
-                  </div>
-
-                  <div class="mt-4 flex items-center justify-center gap-3">
-                    <button id="btnStandardYes"
-                      class="btn-choice px-4 py-2.5 rounded-2xl bg-white/70 transition shadow-sm text-base">
-                      רכב צמוד / מוצמד
-                    </button>
-
-                    <button id="btnStandardNo"
-                      class="btn-choice px-4 py-2.5 rounded-2xl bg-white/70 transition shadow-sm text-base">
-                      רכב איגום / ת"ש
-                    </button>
-
-                  </div>
-                </div>
-              </section>
-
               <!-- Dynamic cards -->
               <div id="dynamicCards" class="hidden space-y-6">
 
@@ -185,65 +161,83 @@
 
                     <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <label class="block">
-                        <span class="text-sm text-slate-600">קטגוריית רכב</span>
-                        <select
-                          id="carType"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl
-                                px-4 py-4 text-base
-                       shadow-[0_12px_28px_rgba(31,41,55,.08)]
-                                focus:outline-none focus:ring-2 focus:ring-indigo-300"
-                        >
-                          <option value="" selected disabled>בחר סוג רכב…</option>
-                          <option value="bmw_d">BYD</option>
-                          <option value="toyota_land_cruiser">טויוטה לנד קרוזר</option>
-                          <option value="toyota_highlander">טויוטה היילנדר</option>
-                          <option value="toyota_rav4">טויוטה ראב 4</option>
-                          <option value="toyota_hilux">טויוטה היילקס</option>
-                          <option value="toyota_vigo">טויוטה ויגו</option>
-                          <option value="toyota_yaris_cross">טויוטה יאריס קרוס</option>
-                          <option value="toyota_yaris">טויוטה יאריס</option>
-                          <option value="toyota_camry">טויוטה קאמרי</option>
-                          <option value="toyota_corolla">טויוטה קורולה</option>
-
-                          <option value="hyundai_i25">יונדאי I25</option>
-                          <option value="hyundai_elantra">יונדאי אלנטרה</option>
-                          <option value="hyundai_accent">יונדאי אקסנט</option>
-                          <option value="hyundai_i">יונדאי I</option>
-                          <option value="hyundai_staria">יונדאי סטארייה</option>
-
-                          <option value="mazda_2">מאזדה 2</option>
-
-                          <option value="mitsubishi_triton">מיצוביי טרייטון</option>
-                          <option value="mitsubishi_other">מיצובישי</option>
-
-                          <option value="citroen_berlingo">סיטרואן ברלינגו</option>
-                          <option value="citroen_berlingo_7">סיטרואן ברלינגו 7 מקומות</option>
-                          <option value="citroen_jumpy">סיטרואן ג'מפי</option>
-                          <option value="citroen_spacetourer">סיטרואן ספייסטורר (פיקאסו)</option>
-
-                          <option value="skoda_octavia">סקודה אוקטביה</option>
-                          <option value="fiat_ducato">פיאט דקאטו</option>
-
-                          <option value="kia_ceed">קאיה סיד</option>
-                          <option value="kia_niro">קיה נירו</option>
-                          <option value="kia_sportage">קיה ספרטאג'</option>
-                          <option value="kia_picanto">קיה פיקנטו</option>
-                          <option value="kia_rio">קיה ריו</option>
-
-                          <option value="renault_traffic">רנו טרפיק</option>
-                          <option value="renault_megane">רנו מגאן</option>
-                          <option value="renault_kangoo">רנו קנגו</option>
+                        <span class="text-sm text-slate-600">דרגה</span>
+                        <select id="rankType" class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 px-4 py-4 text-base">
+                          <option value="רשט">רש"ט</option>
+                          <option value="סמש">סמ"ש</option>
+                          <option value="סמר">סמ"ר</option>
+                          <option value="רסל">רס"ל</option>
+                          <option value="רסר">רס"ר</option>
+                          <option value="רסמ">רס"מ</option>
+                          <option value="סגמ">סג"מ</option>
+                          <option value="רסב">רס"ב</option>
+                          <option value="רנג">רנ"ג</option>
+                          <option value="ממש">ממ"ש</option>
+                          <option value="מפקח">מפקח</option>
+                          <option value="פקד">פקד</option>
+                          <option value="רפק">רפ"ק</option>
+                          <option value="סנצ">סנ"צ</option>
+                          <option value="נצמ">נצ"מ</option>
+                          <option value="תנצ">תנ"צ</option>
+                          <option value="ניצב">ניצב</option>
                         </select>
                       </label>
 
-
                       <label class="block">
-                        <span class="text-sm text-slate-600">או הזן סכום (₪)</span>
-                        <input id="benefitManual" type="number" inputmode="decimal" min="0" step="0.01"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+                        <span class="text-sm text-slate-600">מכשיר</span>
+                        <select id="phoneType" class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 px-4 py-4 text-base">
+                          <option value="galaxy_a26_5g_128">Galaxy A26 5G - 128GB</option>
+                          <option value="galaxy_a36_5g_128">Galaxy A36 5G - 128GB</option>
+                          <option value="galaxy_a56_5g_256">Galaxy A56 5G - 256GB</option>
+                          <option value="galaxy_s25_fe_256">Galaxy S25 FE - 256GB</option>
+                          <option value="galaxy_s25_256">Galaxy S25 - 256GB</option>
+                          <option value="galaxy_s25_edge_256">Galaxy S25 Edge - 256GB</option>
+                          <option value="galaxy_s26_256">Galaxy S26 - 256GB</option>
+
+                          <option value="iphone_17e_256">iPhone 17e - 256GB</option>
+                          <option value="iphone_17e_512">iPhone 17e - 512GB</option>
+                          <option value="iphone_17_256">iPhone 17 - 256GB</option>
+                          <option value="iphone_17_air_256">iPhone 17 Air - 256GB</option>
+                          <option value="iphone_17_pro_256">iPhone 17 Pro - 256GB</option>
+
+                          <option value="galaxy_s25_edge_512">Galaxy S25 Edge - 512GB</option>
+                          <option value="galaxy_s25_ultra_256">Galaxy S25 Ultra - 256GB</option>
+                          <option value="galaxy_s25_ultra_512">Galaxy S25 Ultra - 512GB</option>
+                          <option value="galaxy_s25_ultra_1024">Galaxy S25 Ultra - 1024GB</option>
+                          <option value="galaxy_z_flip_7_256">Galaxy Z Flip 7 - 256GB</option>
+                          <option value="galaxy_z_flip_7_512">Galaxy Z Flip 7 - 512GB</option>
+                          <option value="galaxy_z_fold_7_256">Galaxy Z Fold 7 - 256GB</option>
+                          <option value="galaxy_z_fold_7_512">Galaxy Z Fold 7 - 512GB</option>
+                          <option value="galaxy_s26_premium_256">Galaxy S26 - 256GB</option>
+                          <option value="galaxy_s26_plus_256">Galaxy S26 Plus - 256GB</option>
+                          <option value="galaxy_s26_plus_512">Galaxy S26 Plus - 512GB</option>
+                          <option value="galaxy_s26_ultra_256">Galaxy S26 Ultra - 256GB</option>
+                          <option value="galaxy_s26_ultra_512">Galaxy S26 Ultra - 512GB</option>
+                          <option value="galaxy_s26_ultra_1024">Galaxy S26 Ultra - 1024GB</option>
+
+                          <option value="iphone_17_pro_512">iPhone 17 Pro - 512GB</option>
+                          <option value="iphone_17_pro_1024">iPhone 17 Pro - 1024GB</option>
+                          <option value="iphone_17_pro_max_256">iPhone 17 Pro Max - 256GB</option>
+                          <option value="iphone_17_pro_max_512">iPhone 17 Pro Max - 512GB</option>
+                          <option value="iphone_17_pro_max_1024">iPhone 17 Pro Max - 1024GB</option>
+                        </select>
                       </label>
                     </div>
+                      <div class="rounded-2xl bg-white/45 border border-white/40 p-4">
+                        <div class="font-semibold text-slate-900 mb-2">פירוט חישוב זקיפת טלפון</div>
 
+                        <div>עלות חודשית עבור מכשיר ותכנית סלולר: ₪ <b id="phoneMonthlyCost">0.00</b></div>
+                        <div>השתתפות המעסיק לפי דרגה: ₪ <b id="employerShare">0.00</b></div>
+                        <div>חיוב בחשבון הפלאפון: ₪ <b id="phoneBillCharge">0.00</b></div>
+
+                        <hr class="my-3">
+
+                        <div>מחצית מהעלות, עד 115 ₪: ₪ <b id="halfCost">0.00</b></div>
+                        <div>השתתפות העובד: ₪ <b id="employeeShare">0.00</b></div>
+                        <div class="text-lg font-bold text-violet-700">
+                          זקיפת שווי לעובד בתלוש: ₪ <span id="taxableBenefit">0.00</span>
+                        </div>
+                      </div>
                     <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                       <label class="block">
                         <span class="text-sm text-slate-600">אחוז מס שולי</span>
@@ -260,106 +254,15 @@
                         </select>
                       </label>  
                       <div class="rounded-2xl bg-white/45 border border-white/40 p-4">
-                        <div class="text-sm text-slate-500">פירוט ניכוי על זקיפת הטבת רכב</div>
+                        <div class="text-sm text-slate-500">פירוט ניכוי על זקיפת הטבת פלאפון</div>
                         <div class="mt-2 space-y-1 text-base">
                           <div class="flex justify-between"><span>מס שולי</span><b>₪ <span id="taxOnBenefit">0.00</span></b></div>
                           <div class="flex justify-between"><span>ביטוח לאומי (7%)</span><b>₪ <span id="nOnBenefit">0.00</span></b></div>
                           <div class="flex justify-between"><span>בריאות (5%)</span><b>₪ <span id="hOnBenefit">0.00</span></b></div>
                           <div class="pt-9 mt-9 border-t border-white/40 text-center text-slate-900">
-                            <div class="font-semibold text-base">סה״כ זקיפת הטבת רכב</div>
+                            <div class="font-semibold text-base">סה״כ זקיפת הטבת פלאפון</div>
                             <span class="mt-2 text-xl font-bold">₪ <span id="sumBenefit">0.00</span></span>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Dates -->
-                  <div id="datesCard" class="hidden rounded-[26px] bg-white/55 border border-white/45 backdrop-blur-2xl p-5 shadow-[0_22px_50px_rgba(31,41,55,.12)]">
-                    <div class="text-slate-900 font-semibold text-lg">שימוש בפועל ברכב</div>
-                    <div class="text-sm text-slate-500 mt-1">בחר דרך הזנה: תאריכים או מספר ימים</div>
-
-                    <!-- Mode toggle -->
-                    <div class="mt-4 flex items-center justify-center gap-2">
-                      <button id="btnModeDates" type="button"
-                        class="px-4 py-2 rounded-2xl border border-white/50 bg-white/75 hover:bg-white/90 transition text-sm">
-                        הזנת תאריכים
-                      </button>
-
-                      <button id="btnModeDays" type="button"
-                        class="px-4 py-2 rounded-2xl border border-white/40 bg-white/35 hover:bg-white/60 transition text-sm">
-                        הזנת מספר ימים
-                      </button>
-                    </div>
-
-                    <!-- Dates inputs -->
-                    <div id="datesInputs" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <label class="block">
-                        <span class="text-sm text-slate-600">תאריך התחלה</span>
-                        <input id="startDate" type="date"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-                      </label>
-
-                      <label class="block">
-                        <span class="text-sm text-slate-600">תאריך סיום</span>
-                        <input id="endDate" type="date"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-                      </label>
-                    </div>
-
-                    <!-- Days inputs -->
-                    <div id="daysInputs" class="hidden mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <label class="block">
-                        <span class="text-sm text-slate-600">בחר חודש (כדי לדעת כמה ימים בחודש)</span>
-                        <input id="useMonth" type="month"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-                      </label>
-
-                      <label class="block">
-                        <span class="text-sm text-slate-600">כמה ימים נסעת בחודש?</span>
-                        <input id="daysCount" type="number" inputmode="numeric" min="0" step="1"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-                      </label>
-                    </div>
-
-                    <div class="mt-3 rounded-2xl bg-white/45 border border-white/40 p-4">
-                      <div class="text-sm text-slate-500">סיכום חישוב</div>
-
-                      <div class="mt-2 space-y-1 text-base">
-                        <div class="flex justify-between"><span>ימים בחודש</span><b><span id="daysInMonth">—</span></b></div>
-                        <div class="flex justify-between"><span>ימים בשימוש</span><b><span id="daysUsed">—</span></b></div>
-                      </div>
-
-                      <div id="dateError" class="mt-2 text-sm text-rose-600 hidden"></div>
-                    </div>
-                  </div>
-
-
-                  <!-- Allowance -->
-                  <div id="field2Card" class="rounded-[26px] bg-white/55 border border-white/45 backdrop-blur-2xl p-5 shadow-[0_22px_50px_rgba(31,41,55,.12)]">
-                    <div class="text-slate-900 font-semibold text-lg">תוספת איזון</div>
-
-                    <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <label class="block">
-                        <span class="text-sm text-slate-600">תוספת איזון (₪) - 71% משווי הרכב</span>
-                        <input id="allowance" type="number" inputmode="decimal" min="0" step="0.01"
-                          class="mt-1 w-full rounded-2xl bg-white/60 border border-white/45 backdrop-blur-xl px-4 py-4 text-base
-                             shadow-[0_12px_28px_rgba(31,41,55,.08)] focus:outline-none focus:ring-2 focus:ring-indigo-300" />
-                      </label>
-
-                      <div class="rounded-2xl bg-white/45 border border-white/40 p-4">
-                        <div class="text-sm text-slate-500">פירוט ניכוי על תוספת איזון</div>
-                        <div class="mt-2 space-y-1 text-base">
-                          <div class="flex justify-between"><span>מס שולי (<span id="taxPct2">—</span>)</span><b>₪ <span id="taxOnAllowance">0.00</span></b></div>
-                          <div class="flex justify-between"><span>ביטוח לאומי (7%)</span><b>₪ <span id="nOnAllowance">0.00</span></b></div>
-                          <div class="flex justify-between"><span>בריאות (5%)</span><b>₪ <span id="hOnAllowance">0.00</span></b></div>
-                          <div class="pt-9 mt-9 border-t border-white/40 text-slate-900 text-center">
-                          <div class="font-semibold text-base">
-                            סה"כ תוספת איזון נטו
-                          </div>
-                            ₪ <span class="mt-2 text-xl font-bold" id="netAllowance">0.00</span>
-                        </div>
-
                         </div>
                       </div>
                     </div>
@@ -380,7 +283,7 @@
                 shadow-[0_30px_70px_rgba(99,102,241,.35)] flex flex-col items-center text-center">
 
               <div class="text-lg opacity-90 flex items-baseline justify-center gap-3 text-6xl sm:text-6xl font-bold tracking-tight">
-                סכום הניכוי נטו בגין הרכב
+                סכום הניכוי נטו בגין פלאפון
               </div>
 
               <div class="mt-6 w-full max-w-2xl rounded-2xl bg-white/15 border border-white/20 p-5 sm:p-6 backdrop-blur-xl">
