@@ -1539,14 +1539,29 @@ details[open] .kosher-arrow {
 }
 .final-result-box {
   border-radius: 28px;
-  background: linear-gradient(135deg, #f3e8ff 0%, #eef2ff 45%, #ffffff 100%);
-  border: 1px solid #ddd6fe;
-  padding: 24px;
-  box-shadow: 0 25px 60px rgba(99, 102, 241, 0.16);
+
+  background:linear-gradient(
+      135deg,
+      rgba(255,255,255,0.88),
+      rgba(248,250,252,0.92),
+      rgba(239,246,255,0.90)
+    );
+  
+  border: 1px solid rgba(255,255,255,0.75);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  border-radius: 28px !important;
+  overflow: hidden;
+
+
+  margin: 0 auto;
+}
+
+.final-result-box > div:last-child {
+  border-radius: 24px !important;
+  overflow: hidden;
 }
 .selection-title {
   font-size: 17px;
@@ -1616,4 +1631,129 @@ details[open] .kosher-arrow {
   .final-soft b {
     font-size: 16px;
   }
+}
+@media (min-width: 640px) {
+  .selection-card:first-child {
+    margin-left: 12px;
+  }
+
+  .selection-card:last-child {
+    margin-right: 12px;
+  }
+}
+.final-result-box {
+  position: relative;
+  overflow: hidden;
+
+  border-radius: 34px;
+
+  padding: 28px 20px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(210, 193, 241, 0.493),
+      rgba(255, 255, 255, 0.92));
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  box-shadow:
+    0 25px 80px rgba(99,102,241,0.40),
+    0 0 40px rgba(168,85,247,0.35);
+
+  backdrop-filter: blur(20px);
+
+  isolation: isolate;
+}
+
+.final-result-box::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -38%;
+
+  background:
+    radial-gradient(circle at top right,
+      rgba(111, 0, 255, 0.35),
+      transparent 35%);
+
+  animation: glowMove 5s linear infinite;
+
+  z-index: 0;
+}
+
+@keyframes glowMove {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.final-result-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+.final-result-box .text-xl,
+.final-result-box .text-2xl {
+  color: #0f172a;
+  text-shadow: none;
+  font-size: clamp(18px, 2.5vw, 30px);
+}
+
+.final-result-box .text-slate-600 {
+  color: #64748b;
+}
+
+.final-formula {
+  color: #3d146b;
+
+  font-size: 20px;
+
+  font-weight: 500;
+  margin-top: 8px;
+  text-shadow: none;
+}
+
+#finalValueWrapper {
+  margin-top: 2px;
+
+  padding: 1px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.72),
+      rgba(255,255,255,0.52)
+    );
+
+   border: 1px solid rgba(255,255,255,0.85);
+
+  box-shadow:
+    inset 0 1px 1px rgba(255,255,255,0.8),
+    0 8px 24px rgba(15,23,42,0.05);
+
+  backdrop-filter: blur(18px);
+}
+
+#finalValue {
+  font-size: clamp(12px, 5vw, 40px);
+  font-weight: 600;
+  letter-spacing: -1px; 
+  line-height: 1;
+
+  color: #4f1b92;
+
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.08);
+
+  letter-spacing: -2px;
 }
