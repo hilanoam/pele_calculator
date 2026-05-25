@@ -1337,8 +1337,8 @@ video {
 }
 
 .info-tooltip-btn:hover > .tooltip-box,
-.info-tooltip-btn:focus-within > .tooltip-box,
-.info-tooltip-btn:active > .tooltip-box {
+.info-tooltip-btn:focus > .tooltip-box,
+.info-tooltip-btn:focus-within > .tooltip-box {
   display: block;
 }
 
