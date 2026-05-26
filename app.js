@@ -4,6 +4,7 @@ const FIXED_HEALTH = 0.05;  // ביטוח בריאות
 const ALLOWANCE_AUTO_PCT = 0.71; // 71%
 
 let allowanceAuto = true; 
+let submitted = false;
 
 const PHONE_VALUES = {
   galaxy_a26_5g_128: 48.94,
@@ -28,7 +29,7 @@ const PHONE_VALUES = {
   galaxy_z_flip_7_512: 107.10,
   galaxy_z_fold_7_256: 150.30,
   galaxy_z_fold_7_512: 159.32,
-  galaxy_s26_512: 97.74,
+  galaxy_s26_premium_256: 97.74,
   galaxy_s26_plus_256: 96.02,
   galaxy_s26_plus_512: 107.82,
   galaxy_s26_ultra_256: 108.27,
@@ -61,6 +62,7 @@ const RANK_ALLOWANCE = {
   "תנצ": 177,
   "ניצב": 236
 };
+
 // ====== Utils ======
 function toNum(v) {
   const n = Number(v);
@@ -78,54 +80,37 @@ function pctToNum(pctStr) {
 // ====== Elements ======
 const rankType = document.getElementById("rankType");
 const phoneType = document.getElementById("phoneType");
+const taxPct = document.getElementById("taxPct");
+const allowance = document.getElementById("allowance");
 
+// Breakdown explanations
 const phoneMonthlyCost = document.getElementById("phoneMonthlyCost");
 const employerShareEl = document.getElementById("employerShare");
 const phoneBillChargeEl = document.getElementById("phoneBillCharge");
 const halfCostEl = document.getElementById("halfCost");
 const employeeShareEl = document.getElementById("employeeShare");
 const taxableBenefitEl = document.getElementById("taxableBenefit");
-const dynamicCards = document.getElementById("dynamicCards");
-const datesCard = document.getElementById("datesCard");
-
-const field2Card = document.getElementById("field2Card");
-
-const carType = document.getElementById("carType");
-const benefitManual = document.getElementById("benefitManual");
-const taxPct = document.getElementById("taxPct");
-const allowance = document.getElementById("allowance");
-
-// Breakdown field 1
-const taxOnBenefit = document.getElementById("taxOnBenefit");
-const nOnBenefit = document.getElementById("nOnBenefit");
-const hOnBenefit = document.getElementById("hOnBenefit");
-const sumBenefit = document.getElementById("sumBenefit");
-
-// Breakdown field 2
-const taxPct2 = document.getElementById("taxPct2");
-const taxOnAllowance = document.getElementById("taxOnAllowance");
-const nOnAllowance = document.getElementById("nOnAllowance");
-const hOnAllowance = document.getElementById("hOnAllowance");
-const netAllowance = document.getElementById("netAllowance");
-
-// Final
-const finalValue = document.getElementById("finalValue");
-
-// Calc button
-const btnCalc = document.getElementById("btnCalc");
-const footerBanner = document.getElementById("footerBanner");
 
 const phoneCostFormula = document.getElementById("phoneCostFormula");
 const employerShareFormula = document.getElementById("employerShareFormula");
 const halfCostFormula = document.getElementById("halfCostFormula");
 const employeeShareFormula = document.getElementById("employeeShareFormula");
+
+// Breakdown field (tax deduction)
+const taxOnBenefit = document.getElementById("taxOnBenefit");
+const nOnBenefit = document.getElementById("nOnBenefit");
+const hOnBenefit = document.getElementById("hOnBenefit");
+const sumBenefit = document.getElementById("sumBenefit");
+
+// Final
 const finalTaxCharge = document.getElementById("finalTaxCharge");
 const finalPhoneCharge = document.getElementById("finalPhoneCharge");
-// ====== State ======
-let hasStandard = null; // null עד שלא בוחרים
-let submitted = false;
+const finalValue = document.getElementById("finalValue");
 
-
+// Layout & Actions
+const dynamicCards = document.getElementById("dynamicCards");
+const footerBanner = document.getElementById("footerBanner");
+const btnCalc = document.getElementById("btnCalc");
 
 // ====== Calculation helpers ======
 function renderPhoneExplanation(phoneCost, employerShare, phoneBillCharge, halfCost, taxableBenefit) {
@@ -153,59 +138,27 @@ function getBenefitValue() {
 
   return taxableBenefit;
 }
+
 function autoFillAllowanceIfNeeded() {
-  if (hasStandard !== true) return;
-  if (!allowance) return;
-  if (!allowanceAuto) return;
+  if (!allowance || !allowanceAuto) return;
 
   const B = getBenefitValue();
   allowance.value = B > 0 ? money(B * ALLOWANCE_AUTO_PCT) : "";
 }
 
-// ====== Validation (אדום רק אחרי "חשב") ======
-function mark(el, ok) {
-  if (!el) return;
-  if (!submitted) {
-    el.classList.remove("input-error");
-    return;
-  }
-  el.classList.toggle("input-error", !ok);
-}
-
-function clearAllMarks() {
-  [carType, benefitManual, taxPct].forEach((el) => {
-    if (el) el.classList.remove("input-error");
-  });
-}
-
-function stopWithError(msg) {
-  if (finalValue) finalValue.textContent = "—";
-  return { ok: false };
-}
-
+// ====== Validation ======
 function validateRequired() {
   let ok = true;
+  const requiredFields = [rankType, phoneType, taxPct];
 
-  if (!rankType?.value) {
-    rankType?.classList.add("input-error");
-    ok = false;
-  } else {
-    rankType?.classList.remove("input-error");
-  }
-
-  if (!phoneType?.value) {
-    phoneType?.classList.add("input-error");
-    ok = false;
-  } else {
-    phoneType?.classList.remove("input-error");
-  }
-
-  if (!taxPct?.value) {
-    taxPct?.classList.add("input-error");
-    ok = false;
-  } else {
-    taxPct?.classList.remove("input-error");
-  }
+  requiredFields.forEach((el) => {
+    if (!el?.value) {
+      el?.classList.add("input-error");
+      ok = false;
+    } else {
+      el?.classList.remove("input-error");
+    }
+  });
 
   return ok;
 }
@@ -226,39 +179,37 @@ function recalc() {
   const B = getBenefitValue();
   const T = pctToNum(taxPct?.value);
 
-  // field1 cost (עלות ניכוי על זקיפת הטבה לרכב)
+  // חישוב עלות ניכוי על זקיפת הטבה
   const taxB = B * T;
   const niB = B * FIXED_NI;
   const healthB = B * FIXED_HEALTH;
   const cost1 = taxB + niB + healthB;
-  const phoneBillCharge = Math.max(
-    PHONE_VALUES[phoneType?.value] - RANK_ALLOWANCE[rankType?.value],
-    0
-  );
+  
+  const phoneCost = PHONE_VALUES[phoneType?.value] ?? 0;
+  const rankShare = RANK_ALLOWANCE[rankType?.value] ?? 0;
+  const phoneBillCharge = Math.max(phoneCost - rankShare, 0);
 
   const final = cost1 + phoneBillCharge;
   
+  // Render formulas
   if (finalTaxCharge) finalTaxCharge.textContent = money(cost1);
   if (finalPhoneCharge) finalPhoneCharge.textContent = money(phoneBillCharge);
-  // ====== Render breakdowns ======
+  
+  // Render breakdowns
   if (taxOnBenefit) taxOnBenefit.textContent = money(taxB);
   if (nOnBenefit) nOnBenefit.textContent = money(niB);
   if (hOnBenefit) hOnBenefit.textContent = money(healthB);
   if (sumBenefit) sumBenefit.textContent = money(cost1);
-  if (finalValue) finalValue.textContent = `₪ ${money(final)}`;
   
+  // Render final result
+  if (finalValue) finalValue.textContent = `₪ ${money(final)}`;
 }
 
-
 // ====== Listeners ======
-function updatePhoneOnly() {
+function maybeRecalc() {
   if (rankType?.value && phoneType?.value) {
     getBenefitValue();
   }
-}
-
-function maybeRecalc() {
-  updatePhoneOnly();
 
   if (rankType?.value && phoneType?.value && taxPct?.value) {
     submitted = true;
@@ -266,42 +217,52 @@ function maybeRecalc() {
   }
 }
 
-rankType?.addEventListener("change", maybeRecalc);
-phoneType?.addEventListener("change", maybeRecalc);
-taxPct?.addEventListener("change", maybeRecalc);
-
-
-// allowance: אם מתחילים להקליד -> מפסיקים אוטומטי
-allowance?.addEventListener("input", () => {
-  allowanceAuto = allowance.value.trim() === "";
-  if (allowanceAuto) autoFillAllowanceIfNeeded();
-  maybeRecalc();
-});
-
-
-// כפתור חשב
-btnCalc?.addEventListener("click", () => {
-  submitted = true;
-  recalc();
-});
-
-// ====== Init ======
+// ====== Init & Setup ======
 function init() {
-  if (carType) carType.value = "";
-  if (benefitManual) benefitManual.value = "";
-  if (taxPct) taxPct.value = "";
-
+  // Reset state
   submitted = false;
-
-  // מציגים ישר את המחשבון
+  if (taxPct) taxPct.value = "";
+  
   dynamicCards?.classList.remove("hidden");
-
-  // מסתירים לחלוטין כרטיסים שלא רלוונטיים
-  datesCard?.classList.add("hidden");
-  field2Card?.classList.add("hidden");
-
-  clearAllMarks();
-
   if (finalValue) finalValue.textContent = "0.00";
+  
+  // Clear error marks
+  [rankType, phoneType, taxPct].forEach((el) => el?.classList.remove("input-error"));
+
+  // Event Listeners for inputs
+  rankType?.addEventListener("change", maybeRecalc);
+  phoneType?.addEventListener("change", maybeRecalc);
+  taxPct?.addEventListener("change", maybeRecalc);
+
+  // Allowance typing override
+  allowance?.addEventListener("input", () => {
+    allowanceAuto = allowance.value.trim() === "";
+    if (allowanceAuto) autoFillAllowanceIfNeeded();
+    maybeRecalc();
+  });
+
+  // Calculate button
+  btnCalc?.addEventListener("click", () => {
+    submitted = true;
+    recalc();
+  });
+
+  // Tooltip Logic integration
+  document.addEventListener("click", function (event) {
+    const clickedTooltipButton = event.target.closest(".info-tooltip-btn");
+    const clickedTooltipBox = event.target.closest(".tooltip-box");
+
+    document.querySelectorAll(".info-tooltip-btn.open").forEach(function (btn) {
+      if (btn !== clickedTooltipButton && !clickedTooltipBox) {
+        btn.classList.remove("open");
+      }
+    });
+
+    if (clickedTooltipButton && !clickedTooltipBox) {
+      clickedTooltipButton.classList.toggle("open");
+    }
+  });
 }
+
+// Run init on load
 init();
