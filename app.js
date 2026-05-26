@@ -28,7 +28,7 @@ const PHONE_VALUES = {
   galaxy_z_flip_7_512: 107.10,
   galaxy_z_fold_7_256: 150.30,
   galaxy_z_fold_7_512: 159.32,
-  galaxy_s26_premium_256: 97.74,
+  galaxy_s26_512: 97.74,
   galaxy_s26_plus_256: 96.02,
   galaxy_s26_plus_512: 107.82,
   galaxy_s26_ultra_256: 108.27,
