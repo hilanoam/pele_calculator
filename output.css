@@ -1336,10 +1336,14 @@ video {
   z-index: 999999;
 }
 
-.info-tooltip-btn:hover > .tooltip-box,
-.info-tooltip-btn:focus > .tooltip-box,
-.info-tooltip-btn:focus-within > .tooltip-box {
+.info-tooltip-btn.open > .tooltip-box {
   display: block;
+}
+
+@media (hover: hover) {
+  .info-tooltip-btn:hover > .tooltip-box {
+    display: block;
+  }
 }
 
 .tooltip-title {
