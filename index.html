@@ -67,24 +67,14 @@
                                     </div>
 
                                     <div class="calc-line">
-                                      מחצית מהעלות החודשית
-                                      <span>≤ 115₪</span>
+                                      מחצית מהעלות החודשית (אך לא פחות מ ₪115) פחות השתתפות העובד בפועל (חיוב בחשבון) שווה לזקיפת שווי העובד.
                                     </div>
-
-                                    <div class="calc-line">
-                                      פחות השתתפות העובד בפועל
-                                    </div>
-
-                                    <div class="calc-line result">
-                                      = זקיפת שווי לעובד
-                                    </div>
-
                                   </div>
 
                                   <div class="example-box">
 
                                     <div class="example-title">
-                                      דוגמה לחישוב
+                                      דוגמה לחישוב עבור 
                                     </div>
 
                                     <div class="example-row">
@@ -186,27 +176,27 @@
                           </div>
 
                           <select id="rankType" class="selection-select-premium">
-                            <option value="" selected disabled>בחר דרגה...</option>
+                            <option value="" selected disabled>
+                              בחר דרגה...
+                            </option>
 
-                            <option value="רשט">רש"ט</option>
-                            <option value="סמש">סמ"ש</option>
-                            <option value="סמר">סמ"ר</option>
-                            <option value="רסל">רס"ל</option>
-                            <option value="רסר">רס"ר</option>
-                            <option value="רסמ">רס"מ</option>
-                            <option value="סגמ">סג"מ</option>
-                            <option value="רסב">רס"ב</option>
-                            <option value="רנג">רנ"ג</option>
-                            <option value="ממש">ממ"ש</option>
-                            <option value="מפקח">מפקח</option>
-                            <option value="פקד">פקד</option>
-                            <option value="רפק">רפ"ק</option>
-                            <option value="סנצ">סנ"צ</option>
-                            <option value="נצמ">נצ"מ</option>
-                            <option value="תנצ">תנ"צ</option>
-                            <option value="ניצב">ניצב</option>
+                            <option value="basic">
+                              עד פקד / עד רס"ב 
+                            </option>
+
+                            <option value="senior">
+                              סנ"צ / רפ"ק / רנ"ג 
+                            </option>
+
+                            <option value="chief">
+                              תנ"צ / נצ"מ 
+                            </option>
+
+                            <option value="nitsav">
+                              ניצב 
+                            </option>
+
                           </select>
-
                         </label>
 
                         <!-- מכשיר -->
@@ -307,36 +297,33 @@
 
                         <div class="calc-row final-soft">
 
-                          <span class="flex items-center gap-2">
+                          <div class="flex flex-col">
 
-                            זקיפת מס טלפון נייד
+                            <span class="flex items-center gap-2">
+                              זקיפת מס טלפון נייד
+                            </span>
 
-                            <button class="info-tooltip-btn" type="button">
+                            <span class="text-xs text-slate-500 mt-1">
+                              מופיע בטבלת נתוני העזר בתלוש השכר
+                            </span>
 
-                              !
-
-                              <div class="tooltip-box">
-
-                                <div class="tooltip-title">
-                                  טבלת נתוני העזר בתלוש השכר
-                                </div>
-
-                                <div class="tooltip-section">
-                                  סכום זקיפת המס עבור הטלפון הנייד מופיע בתלוש השכר
-                                  תחת טבלת נתוני העזר.
-                                </div>
-
-                              </div>
-
-                            </button>
-
-                          </span>
+                          </div>
 
                           <b>
                             ₪ <span id="taxableBenefit">0.00</span>
                           </b>
 
                         </div>
+                        <div class="divider"></div>
+                        
+                        <div class="calc-row final-soft">
+                          <span class="flex items-center gap-2">
+                           סכום הניקוי נטו בגין הטבת טלפון נייד
+                          </span>
+
+                          <b>
+                            ₪ <span id="sumBenefit">0.00</span>
+                          </b>
                       </div>
                     
                   </div>
