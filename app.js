@@ -262,6 +262,28 @@ function init() {
       clickedTooltipButton.classList.toggle("open");
     }
   });
+  document.querySelectorAll(".info-tooltip-btn").forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    document.querySelectorAll(".info-tooltip-btn.open").forEach((openBtn) => {
+      if (openBtn !== btn) openBtn.classList.remove("open");
+    });
+
+    btn.classList.toggle("open");
+  });
+});
+
+document.addEventListener("click", function () {
+  document.querySelectorAll(".info-tooltip-btn.open").forEach((btn) => {
+    btn.classList.remove("open");
+  });
+});
+document.querySelectorAll(".tooltip-box").forEach((box) => {
+  box.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+});
 }
 
 // Run init on load

@@ -1836,7 +1836,7 @@ details[open] .kosher-arrow {
 
   border-bottom: 1px solid #e2e8f0;
 
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .calc-line:last-child {
@@ -1844,7 +1844,7 @@ details[open] .kosher-arrow {
 }
 
 .calc-line.result {
-  font-weight: 800;
+  font-weight: 600;
   color: #0f766e;
 }
 
@@ -1864,7 +1864,7 @@ details[open] .kosher-arrow {
 }
 
 .example-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 800;
 
   margin-bottom: 16px;
@@ -1888,7 +1888,7 @@ details[open] .kosher-arrow {
 .example-row.total {
   margin-top: 10px;
 
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 800;
 
   color: #059669;
