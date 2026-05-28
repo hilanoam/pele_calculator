@@ -1346,12 +1346,7 @@ video {
   }
 }
 
-.tooltip-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: #0f172a;
-  margin-bottom: 10px;
-}
+
 
 .tooltip-subtitle {
   font-weight: 700;
@@ -1777,12 +1772,14 @@ details[open] .kosher-arrow {
   align-items: center;
   gap: 10px;
 
-  font-size: 24px;
-  font-weight: 800;
+  font-size: 16px;
+  font-weight: 700;
 
-  color: #1e3a8a;
+  color: #000000;
 
-  margin-bottom: 20px;
+  margin-bottom: 12px;
+
+  font-family: inherit;
 }
 
 .tooltip-title i {
@@ -1822,7 +1819,7 @@ details[open] .kosher-arrow {
 .calc-title {
   font-size: 18px;
   font-weight: 800;
-
+  font-family: inherit;
   margin-bottom: 14px;
 
   color: #0f172a;

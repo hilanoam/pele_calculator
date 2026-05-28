@@ -80,7 +80,7 @@ function pctToNum(pctStr) {
 // ====== Elements ======
 const rankType = document.getElementById("rankType");
 const phoneType = document.getElementById("phoneType");
-const taxPct = document.getElementById("taxPct");
+const taxPct = document.getElementById("taxRate");
 const allowance = document.getElementById("allowance");
 
 // Breakdown explanations
