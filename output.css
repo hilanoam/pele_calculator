@@ -1538,7 +1538,8 @@ details[open] .kosher-arrow {
 }
 .final-result-box {
   border-radius: 28px;
-
+    margin-top: 45px;
+padding-top: 34px;
   background:linear-gradient(
       135deg,
       rgba(255,255,255,0.88),
@@ -1553,9 +1554,6 @@ details[open] .kosher-arrow {
   text-align: center;
   border-radius: 28px !important;
   overflow: hidden;
-
-
-  margin: 0 auto;
 }
 
 .final-result-box > div:last-child {
