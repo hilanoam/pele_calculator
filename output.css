@@ -1280,6 +1280,14 @@ video {
   border-radius: 16px;
   border-bottom: none;
 }
+.final-softn {
+  background: #c8d1f08a;
+  color: #313b1e;
+  margin: 8px -8px 0;
+  padding: 14px 8px;
+  border-radius: 16px;
+  border-bottom: none;
+}
 
 .final-soft b {
   color: #2c2683;
@@ -1889,4 +1897,12 @@ details[open] .kosher-arrow {
   font-weight: 800;
 
   color: #059669;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+  font-family: 'Heebo', sans-serif;
 }
