@@ -170,8 +170,8 @@
                                 דרגה
                               </div>
 
-                              <div class="selection-subtitle">
-                                בחר את דרגת השוטר
+                              <div class="selection-subtitle-a">
+                               השתתפות המשטרה לפי דרגה
                               </div>
                             </div>
                           </div>
@@ -182,19 +182,19 @@
                             </option>
 
                             <option value="basic">
-                              עד פקד / עד רס"ב 
+                              עד פקד / עד רס"ב - 88 ₪
                             </option>
 
                             <option value="senior">
-                              סנ"צ / רפ"ק / רנ"ג 
+                              סנ"צ / רפ"ק / רנ"ג - 118 ₪
                             </option>
 
                             <option value="chief">
-                              תנ"צ / נצ"מ 
+                              תנ"צ / נצ"מ  - 177 ₪
                             </option>
 
                             <option value="nitsav">
-                              ניצב 
+                              ניצב  - 236 ₪
                             </option>
 
                           </select>
@@ -323,46 +323,111 @@
                     </div>
                       <div class="mt-5 soft-panel">
                         <div class="panel-title">פירוט חישוב זקיפת טלפון</div>
-                        <div class="calc-row muted-total">
-                          <span>סכום החיוב בחשבון פלאפון</span>
-                          <b>
-                            ₪ <span id="phoneBillCharge">0.00</span>
-                          </b>
-                        </div>
 
-                        <div class="divider"></div>
+                        <details class="payment-detail" open>
 
-                        <div class="calc-row final-softn">
+                          <summary class="detail-summary">
+                            <div class="calc-row muted-total">
+                              <div class="flex flex-col">
+                                <span>סכום החיוב בחשבון פלאפון</span>
+                                <span class="text-xs text-slate-500 mt-1">
+                                  הסכום לא כולל תשלומים נוספים
+                                </span>
+                              </div>
 
-                          <div class="flex flex-col">
+                              <b>
+                                <span class="detail-arrow">▼</span>
+                                ₪ <span id="phoneBillCharge">0.00</span>
+                              </b>
+                              
+                            </div>
+                          </summary>
 
-                            <span class="flex items-center gap-2">
-                              זקיפת מס טלפון נייד
-                            </span>
-
-                            <span class="text-xs text-slate-500 mt-1">
-                              מופיע בטבלת נתוני העזר בתלוש השכר
-                            </span>
-
+                          <div class="detail-body">
+                            עלות המכשיר בניכוי השתתפות המשטרה:
+                            <br>
+                            <b dir="ltr">
+                              ₪ <span id="phoneCostFormula">0.00</span>
+                              -
+                              ₪ <span id="employerShareFormula">0.00</span>
+                              =
+                              ₪ <span id="phoneBillFormula">0.00</span>
+                            </b>
                           </div>
 
-                          <b>
-                            ₪ <span id="taxableBenefit">0.00</span>
-                          </b>
+                        </details>
 
-                        </div>
                         <div class="divider"></div>
-                        
-                        <div class="calc-row final-soft">
-                          <span class="flex items-center gap-2">
-                           סכום הניכוי נטו בגין הטבת טלפון נייד
-                          </span>
 
-                          <b>
-                            ₪ <span id="sumBenefit">0.00</span>
-                          </b>
-                      </div>
-                    
+                        <details class="payment-detail">
+
+                          <summary class="detail-summary">
+                            <div class="calc-row final-softn">
+
+                              <div class="flex flex-col">
+                                <span>זקיפת מס טלפון נייד</span>
+
+                                <span class="text-xs text-slate-500 mt-1">
+                                  מופיע בטבלת נתוני העזר בתלוש השכר
+                                </span>
+                              </div>
+
+                              <b>
+                                <span class="detail-arrow">▼</span>
+                                ₪ <span id="taxableBenefit">0.00</span>       
+                              </b>
+
+                            </div>
+                          </summary>
+
+                          <div class="detail-body">
+                            מחצית מעלות המכשיר בניכוי השתתפות העובד:
+                            <br>
+                            <b dir="ltr">
+                              ₪ <span id="halfCostFormula">0.00</span>
+                              -
+                              ₪ <span id="employeeShareFormula">0.00</span>
+                              =
+                              ₪ <span id="taxableFormula">0.00</span>
+                            </b>
+                          </div>
+
+                        </details>
+
+                        <div class="divider"></div>
+
+                        <details class="payment-detail">
+
+                          <summary class="detail-summary">
+                            <div class="calc-row final-soft">
+
+                              <span>
+                                סכום הניכוי נטו בגין הטבת טלפון נייד
+                              </span>
+
+                              <b>
+                                <span class="detail-arrow">▼</span>
+                                ₪ <span id="sumBenefit">0.00</span>
+                              </b>
+
+                            </div>
+                          </summary>
+
+                          <div class="detail-body">
+                            ניכוי מס הכנסה וביטוח לאומי ובריאות:
+                            <br>
+                            <b dir="ltr">
+                              ₪ <span id="taxFormula">0.00</span>
+                              +
+                              ₪ <span id="nationalFormula">0.00</span>
+                              =
+                              ₪ <span id="sumBenefitFormula">0.00</span>
+                            </b>
+                          </div>
+
+                        </details>
+
+                      </div>           
                   </div>
 
                 </section>

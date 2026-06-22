@@ -65,6 +65,12 @@ function pctToNum(pctStr) {
 }
 
 // ====== Elements ======
+const phoneBillFormula = document.getElementById("phoneBillFormula");
+const taxableFormula = document.getElementById("taxableFormula");
+const taxFormula = document.getElementById("taxFormula");
+const nationalFormula = document.getElementById("nationalFormula");
+const sumBenefitFormula = document.getElementById("sumBenefitFormula");
+
 const rankType = document.getElementById("rankType");
 const phoneType = document.getElementById("phoneType");
 const taxPct = document.getElementById("taxRate");
@@ -190,6 +196,15 @@ function recalc() {
   
   // Render final result
   if (finalValue) finalValue.textContent = `₪ ${money(final)}`;
+
+  const nationalAndHealth = niB + healthB;
+
+if (phoneBillFormula) phoneBillFormula.textContent = money(phoneBillCharge);
+if (taxableFormula) taxableFormula.textContent = money(B);
+
+if (taxFormula) taxFormula.textContent = money(taxB);
+if (nationalFormula) nationalFormula.textContent = money(nationalAndHealth);
+if (sumBenefitFormula) sumBenefitFormula.textContent = money(cost1);
 }
 
 // ====== Listeners ======
