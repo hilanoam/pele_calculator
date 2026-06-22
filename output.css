@@ -1309,17 +1309,17 @@ video {
   justify-content: center;
   vertical-align: middle;
   margin-inline-start: 6px;
+  overflow: visible;
 }
 
 .tooltip-box {
-  position: fixed;
+  position: fixed !important;
 
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%);
-
-  width: min(92vw, 430px);
+  transform: translate(-50%, -50%) !important;
+  width: min(92vw, 480px);
 
   max-height: 75vh;
   overflow-y: auto;
@@ -1341,7 +1341,7 @@ video {
 
   text-align: right;
 
-  z-index: 999999;
+   z-index: 9999999 !important;
 }
 
 .info-tooltip-btn.open > .tooltip-box {
@@ -1553,12 +1553,12 @@ padding-top: 34px;
   align-items: center;
   text-align: center;
   border-radius: 28px !important;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .final-result-box > div:last-child {
   border-radius: 24px !important;
-  overflow: hidden;
+  overflow: visible;
 }
 .selection-title {
   font-size: 17px;
@@ -1996,4 +1996,12 @@ textarea {
 
 .payment-detail[open] .detail-arrow {
   transform: rotate(180deg);
+}
+
+.info-tooltip-wrapper {
+  display: inline-block;
+}
+
+.info-tooltip-wrapper.open .tooltip-box {
+  display: block;
 }
