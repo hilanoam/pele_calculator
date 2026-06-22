@@ -37,10 +37,10 @@ const PHONE_VALUES = {
   iphone_17_512:82.91,
   iphone_17_air_256:74.78,
   iphone_17_pro_256: 88.32,
-  iphone_17_pro_51:98.25,
+  iphone_17_pro_512:98.07,
   iphone_17_pro_1024:107.45,
   iphone_17_pro_max_256:93.06,
-  iphone_17_pro_max_512:103.31,
+  iphone_17_pro_max_512:103.08,
   iphone_17_pro_max_1024:112.83
 };
 
