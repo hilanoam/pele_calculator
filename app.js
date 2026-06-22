@@ -8,19 +8,11 @@ let submitted = false;
 
 const PHONE_VALUES = {
   galaxy_a26_5g_128: 48.94,
-  galaxy_a36_5g_128: 51.83,
-  galaxy_a56_5g_256: 60.08,
+  galaxy_a37_5g_128: 55.04,
+  galaxy_a57_5g_256: 63.44,
   galaxy_s25_fe_256: 74.00,
   galaxy_s25_256: 82.34,
   galaxy_s25_edge_256: 79.60,
-  galaxy_s26_256: 86.01,
-
-  iphone_17e_256: 62.98,
-  iphone_17e_512: 72.66,
-  iphone_17_256: 73.54,
-  iphone_17_air_256: 74.78,
-  iphone_17_pro_256: 88.32,
-
   galaxy_s25_edge_512: 90.70,
   galaxy_s25_ultra_256: 101.73,
   galaxy_s25_ultra_512: 106.51,
@@ -28,19 +20,28 @@ const PHONE_VALUES = {
   galaxy_z_flip_7_256: 95.61,
   galaxy_z_flip_7_512: 107.10,
   galaxy_z_fold_7_256: 150.30,
-  galaxy_z_fold_7_512: 159.32,
-  galaxy_s26_premium_256: 97.74,
-  galaxy_s26_plus_256: 96.02,
-  galaxy_s26_plus_512: 107.82,
-  galaxy_s26_ultra_256: 108.27,
-  galaxy_s26_ultra_512: 119.25,
-  galaxy_s26_ultra_1024: 135.58,
+  galaxy_z_fold_7_512 :159.32,
+  galaxy_s26_256: 86.01,
+  galaxy_s26_512: 97.74,
+  galaxy_s26_plus_256:96.02,
+  galaxy_s26_plus_512:107.82,
+  galaxy_s26_ultra_256:108.27,
+  galaxy_s26_ultra_512:119.25,
+  galaxy_s26_ultra_1024:135.58,
 
-  iphone_17_pro_512: 98.25,
-  iphone_17_pro_1024: 107.45,
-  iphone_17_pro_max_256: 93.06,
-  iphone_17_pro_max_512: 103.31,
-  iphone_17_pro_max_1024: 113.06
+  iphone_16_pro_max_256: 83.99,
+  iphone_16_pro_max_512: 91.03,
+  iphone_17e_256: 62.98,
+  iphone_17e_512: 72.66,
+  iphone_17_256:73.54,
+  iphone_17_512:82.91,
+  iphone_17_air_256:74.78,
+  iphone_17_pro_256: 88.32,
+  iphone_17_pro_51:98.25,
+  iphone_17_pro_1024:107.45,
+  iphone_17_pro_max_256:93.06,
+  iphone_17_pro_max_512:103.31,
+  iphone_17_pro_max_1024:112.83
 };
 
 const RANK_ALLOWANCE = {
