@@ -1729,12 +1729,14 @@ padding-top: 34px;
 
 .muted-total b,
 .final-soft b {
-  color: #271065 !important;
-  font-size: 20px;
-  font-weight: 800;
+  font-family: "Heebo", sans-serif;
+  color: #4d3492 !important;
+  font-size: 18px;
+  font-weight: 100;
 }
 
 .detail-arrow {
+  font-family: "Heebo", sans-serif;
   color: #271065 !important;
 }
 #finalValueWrapper {
